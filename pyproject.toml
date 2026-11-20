@@ -1,0 +1,30 @@
+[project]
+name = "sales-dq-auditor"
+version = "0.1.0"
+description = "Data quality and business-rule auditor for sales data, with an HTML report."
+readme = "README.md"
+authors = [
+    { name = "AnkitDutta", email = "39426251+AnkitDutta@users.noreply.github.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.4.6",
+    "pandas>=3.1.1",
+]
+
+[project.scripts]
+dq-audit = "sales_dq_auditor:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "pandas-stubs>=3.1.0.261029",
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.6",
+]
