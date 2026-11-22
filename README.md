@@ -56,13 +56,28 @@ warrant investigation with inventory/cost data.
 ### 3. 37 Extreme Loss Outliers Totalling $58K
 Statistical outlier detection (3σ method) flagged 37 orders with losses
 beyond 3 standard deviations from mean profit ($28.66 ± $234.26).
-The worst single order lost $3,839 on $7,999 in sales — a -48% margin
-on a 50% discounted 3D printer.
+The worst single order lost $6,600 on $4,500 in sales (a Cubify CubeX 3D printer at 70% discount, a -147% margin). The next worst, a $7,999 order at 50% discount, lost $3,840 (-48%).
 
 ### 4. Data Integrity is Clean
 No missing values, duplicate rows, invalid date sequences, or out-of-range
 values were found. All quality issues are business rule violations rather
 than structural data problems.
+
+### 5. Power BI Dashboard
+To make the audit results easier to explore, I built a two-page Power BI
+dashboard on top of the auditor's row-level output (`export_flags.py`).
+
+- **Sales Overview:** sales, profit and margin trends by month, category and region
+- **DQ Scorecard:** flagged orders by rule, the profit impact of discount-driven
+  losses, and a drill-down table of the worst orders
+
+Built with: Power Query (unpivot of flag columns), a star-schema model with a
+date table, and DAX measures (`CALCULATE`, `DIVIDE`).
+
+![Sales Overview](images/dashboard_sales.png)
+![DQ Scorecard](images/dashboard_dq.png)
+
+Open `sales_dq_dashboard.pbix` in Power BI Desktop.
 
 ---
 
