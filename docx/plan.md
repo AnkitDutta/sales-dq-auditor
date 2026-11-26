@@ -173,3 +173,5 @@ Coverage target: **≥ 90%** on `src/`, enforced with `--cov-fail-under=90`.
 - [ ] Before Step 9: remove or wrap `auditor.py`.
 - [ ] Update the README and check that the dashboard still refreshes.
 - [ ] Do all of the above before adding the project to my CV.
+
+- **Likely wrong encoding.** The CSV is read as `latin-1`, but it contains bytes `0x93`/`0x94`, which are curly quotes in `cp1252`. Switch in a separate commit after tests exist.
