@@ -165,3 +165,11 @@ Coverage target: **≥ 90%** on `src/`, enforced with `--cov-fail-under=90`.
 - Add GitHub Actions CI now, or keep to local tooling only?
 - Is `mypy` wanted, or is ruff enough?
 - The README says notebooks, but the repo has none. Is there a notebook version somewhere else that should be included?
+
+
+## Deferred: Power BI cleanup
+- [ ] Step 3: rewrite `src/sales_dq_auditor/export_flags.py` to reuse the shared rules and thresholds, fix its data path, keep the same output columns.
+- [ ] Before Step 9: merge `origin/main` into this branch; remove `scripts/export_flags.py`.
+- [ ] Before Step 9: remove or wrap `auditor.py`.
+- [ ] Update the README and check that the dashboard still refreshes.
+- [ ] Do all of the above before adding the project to my CV.
