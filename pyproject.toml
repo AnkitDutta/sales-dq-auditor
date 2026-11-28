@@ -28,3 +28,8 @@ dev = [
     "pytest-cov>=7.1.0",
     "ruff>=0.17.6",
 ]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=sales_dq_auditor --cov-report=term-missing --cov-fail-under=90"
