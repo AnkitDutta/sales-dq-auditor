@@ -1,7 +1,7 @@
 default_install_hook_types: [pre-commit, pre-push]
 
 # Leave the original files and data exactly as they are
-exclude: ^(baseline/|data/|scripts/|auditor\.py$)
+exclude: ^(baseline/|data/)
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks

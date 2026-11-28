@@ -38,7 +38,6 @@ addopts = "--cov=sales_dq_auditor --cov-report=term-missing --cov-fail-under=90"
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-extend-exclude = ["auditor.py", "scripts"]
 
 [tool.ruff.lint]
 select = ["E", "W", "F", "I", "B", "UP", "SIM", "N", "C4", "PL", "RUF", "PD", "PT", "S"]
