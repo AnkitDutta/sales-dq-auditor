@@ -12,7 +12,9 @@ BADGES = {
     Status.WARN: ("background:#fffbeb;color:#92400e;border:1px solid #fcd34d", "Warning"),
     Status.FAIL: ("background:#fef2f2;color:#991b1b;border:1px solid #fca5a5", "Fail"),
 }
-BADGE_BASE = "padding:2px 10px;border-radius:4px;font-size:11px;font-weight:600;letter-spacing:0.03em"
+BADGE_BASE = (
+    "padding:2px 10px;border-radius:4px;font-size:11px;font-weight:600;letter-spacing:0.03em"
+)
 
 
 def _status_badge(status: Status) -> str:

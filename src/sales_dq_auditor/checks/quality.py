@@ -5,6 +5,7 @@ import pandas as pd
 from sales_dq_auditor.config import AuditConfig
 from sales_dq_auditor.models import Category, CheckResult, Status
 
+
 def _row_result(name: str, bad: pd.DataFrame, pass_message: str, fail_message: str) -> CheckResult:
     """Build the result for a check where any flagged row is a failure."""
     if bad.empty:
@@ -12,9 +13,10 @@ def _row_result(name: str, bad: pd.DataFrame, pass_message: str, fail_message: s
     return CheckResult(
         name, Category.QUALITY, Status.FAIL, fail_message, details=bad, total_flagged=len(bad)
     )
-    
+
+
 def check_nulls(df: pd.DataFrame, config: AuditConfig) -> CheckResult:
-    null_counts = df.isnull().sum()
+    null_counts = df.isna().sum()
     null_counts = null_counts[null_counts > 0]
     detail = null_counts.reset_index()
     detail.columns = ["Column", "Null Count"]
