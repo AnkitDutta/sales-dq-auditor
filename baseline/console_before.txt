@@ -1,0 +1,28 @@
+Loaded 9,994 rows, 21 columns
+
+Check Results
+───────────────────────────────────────────────────────
+[PASS]  Missing Values
+       No missing values across all 21 columns.
+[PASS]  Duplicate Rows
+       No duplicate rows found.
+[PASS]  Negative Sales
+       All Sales values are positive.
+[PASS]  Negative Quantity
+       All Quantity values are positive.
+[PASS]  Discount Out of Range
+       All Discount values fall within the valid 0–1 range.
+[PASS]  Ship Date Before Order Date
+       No orders found where Ship Date precedes Order Date.
+[FAIL]  Extreme Loss Outliers
+       37 order(s) with losses beyond 3 standard deviations from mean profit. Total loss: $58,226.43.
+[WARN]  Extreme Profit Outliers
+       70 order(s) with profit beyond 3 standard deviations above mean — validate these are not data entry errors.
+[WARN]  High Discount Orders (>50%)
+       856 order(s) with Discount above 50%. Those with negative profit represent $76,559.05 in losses.
+[WARN]  Discount-Driven Losses
+       856 order(s) with Discount >50% and negative Profit. Discount policy is directly driving $76,559.05 in losses.
+[WARN]  Unexplained Losses
+       2 order(s) with Loss above $500 at ≤20% discount — losses not explained by discounting alone. Total: $1,835.36. Possible cost basis or pricing issue.
+
+Report saved → output/dq_report.html

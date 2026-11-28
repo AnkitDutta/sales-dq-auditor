@@ -1,0 +1,54 @@
+[project]
+name = "sales-dq-auditor"
+version = "0.1.0"
+description = "Data quality and business-rule auditor for sales data, with an HTML report."
+readme = "README.md"
+authors = [
+    { name = "AnkitDutta", email = "39426251+AnkitDutta@users.noreply.github.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.4.6",
+    "pandas>=3.1.1",
+]
+
+[project.scripts]
+dq-audit = "sales_dq_auditor.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "pandas-stubs>=3.1.0.261029",
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.6",
+]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=sales_dq_auditor --cov-report=term-missing --cov-fail-under=90"
+
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "N", "C4", "PL", "RUF", "PD", "PT", "S"]
+allowed-confusables = ["–"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/sales_dq_auditor/models.py" = ["S105"]
+"src/sales_dq_auditor/checks/business.py" = ["PLR0913", "PLR0917"]
+"src/sales_dq_auditor/report/html.py" = ["PLR2004"]
+"tests/**" = ["S101", "PLR2004", "PLR0913", "PLR0917"]
+
+[tool.mypy]
+strict = true
+files = ["src"]
