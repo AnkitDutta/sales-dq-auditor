@@ -175,3 +175,6 @@ Coverage target: **≥ 90%** on `src/`, enforced with `--cov-fail-under=90`.
 - [ ] Do all of the above before adding the project to my CV.
 
 - **Likely wrong encoding.** The CSV is read as `latin-1`, but it contains bytes `0x93`/`0x94`, which are curly quotes in `cp1252`. Switch in a separate commit after tests exist.
+
+
+- **Profit shown as loss (fixed in Step 3b).** High Discount used `abs(Profit)` for the Loss column, so a profitable discounted order would show as a loss. Profitable rows now show 0.
