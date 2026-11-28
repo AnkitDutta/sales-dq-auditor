@@ -29,6 +29,8 @@ def load_sales_data(path: Path) -> pd.DataFrame:
     missing = [column for column in REQUIRED_COLUMNS if column not in df.columns]
     if missing:
         raise SchemaError(f"Missing required column(s): {', '.join(missing)}")
+    if df.empty:
+        raise SchemaError("The file has no data rows.")
     
     for column in DATE_COLUMNS:
         try:
